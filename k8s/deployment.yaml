@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastapi-calculator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fastapi-calculator
+  template:
+    metadata:
+      labels:
+        app: fastapi-calculator
+    spec:
+      containers:
+        - name: fastapi-calculator
+          image: fastapi-docker-calculator:1.0
+          ports:
+            - containerPort: 8000
